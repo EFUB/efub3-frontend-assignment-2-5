@@ -3,5 +3,5 @@
 - 메모 : 간단한 메모를 할 수 있음
 
 # 화면
-![image](https://github.com/Cho-Jeongmin/efub3-frontend-assignment-2-2/assets/97157930/778fc3a0-75c9-449f-8d04-9240217bca2b)
-![image](https://github.com/Cho-Jeongmin/efub3-frontend-assignment-2-2/assets/97157930/f32bb39a-7c8b-4332-92e8-dbd4f0001050)
+![image](https://github.com/Cho-Jeongmin/efub3-frontend-assignment-2-2/assets/97157930/46d5ab45-2d19-4e47-8a2f-bacee489636d)
+![image](https://github.com/Cho-Jeongmin/efub3-frontend-assignment-2-2/assets/97157930/15d6a5f4-ea20-4699-a997-c1f53aea9e7f)
