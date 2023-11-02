@@ -1,8 +1,9 @@
 import S from "./style";
 import { useRecoilState } from "recoil";
 import { LikeItemAtom } from "../../../atom/likeItem";
+import { OneBookType } from "../../../type/BookType";
 
-const OneBook = ({ book }) => {
+const OneBook = ({ book }: { book: OneBookType }) => {
   console.log(book);
   const { contents, price, title, thumbnail, isbn } = book;
   const [LikeItem, setLikeItem] = useRecoilState(LikeItemAtom);
@@ -13,7 +14,7 @@ const OneBook = ({ book }) => {
     }
   };
 
-  const onDeleteItem = (isbn) => {
+  const onDeleteItem = (isbn: string) => {
     const newItemList = LikeItem.filter((item) => {
       return item.isbn !== isbn;
     });

@@ -18,5 +18,4 @@ const S = {
   Wrapper,
   Title,
 };
-
 export default S;

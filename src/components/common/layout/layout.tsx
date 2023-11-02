@@ -1,7 +1,6 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import S from "./style";
-import { ReactComponent as BookIcon } from "../../../asset/bookIcon.svg";
-import { useNavigate } from "react-router-dom";
+import { ReactComponent as Icon } from "asset/bookIcon.svg";
 
 const Layout = () => {
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ const Layout = () => {
         <S.Header>
           <S.LogoContainer onClick={onMoveMainPage}>
             <S.IconContainer>
-              <BookIcon />
+              <Icon />
             </S.IconContainer>
             <div>BookSearch</div>
           </S.LogoContainer>

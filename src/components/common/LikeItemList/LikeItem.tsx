@@ -1,22 +1,21 @@
 import styled from "styled-components";
-import { flexCenter } from "../../../style/common";
+import { boxShadow, flexCenter } from "../../../style/common";
 import { useRecoilState } from "recoil";
 import { LikeItemAtom } from "../../../atom/likeItem";
-import { boxShadow } from "../../../style/common";
 import { ReactComponent as DeleteIcon } from "../../../asset/deleteIcon.svg";
 
 const LikeItem = () => {
   const [likeList, setLikeList] = useRecoilState(LikeItemAtom);
 
-  const onDeleteItem = (isbn) => {
-    const newItemList = likeList.filter((item) => {
+  const onDeleteItem = (isbn: any) => {
+    const newItemList: any = likeList.filter((item: any) => {
       return item.isbn !== isbn;
     });
     setLikeList(newItemList);
   };
 
   if (!likeList.length) {
-    return;
+    return <div></div>;
   }
 
   return (

@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { flexCenter, omitText, boxShadow } from "../../../style/common";
+import { boxShadow, flexCenter, omitText } from "../../../style/common";
+
+type ButtonProps = {
+  isInList: boolean;
+  onClick: () => void;
+};
 
 const BookImg = styled.img`
   width: 150px;
@@ -8,11 +13,11 @@ const BookImg = styled.img`
   top: 10px;
 `;
 
-const Button = styled.div`
+const Button = styled.div<ButtonProps>`
   position: absolute;
   top: 350px;
   width: 100px;
-  ${flexCenter}
+  ${flexCenter};
   background-color: ${({ isInList }) => (isInList ? "#068696" : "grey")};
   border-radius: 5px;
   font-size: 23px;
@@ -29,8 +34,8 @@ const Container = styled.div`
   transform: translateX(-50%);
   height: 300px;
   transition: 0.5s all;
-  ${flexCenter}
-  flex-direction: column
+  ${flexCenter};
+  flex-direction: column;
 `;
 
 const ContentBox = styled.div`
@@ -56,9 +61,11 @@ const Wrapper = styled.div`
   border: 1px solid #068696;
   ${boxShadow}
   text-align: center;
+
   :hover ${Button} {
     opacity: 1;
   }
+
   position: relative;
 `;
 

@@ -4,6 +4,7 @@ import BookList from "../../components/detail/BookList/BookList";
 import S from "./style";
 import SearchBar from "../../components/main/SearchBar/SearchBar";
 import LikeItem from "../../components/common/LikeItemList/LikeItem";
+import { AxiosResponse } from "axios";
 
 const DetailPage = () => {
   const url = new URL(window.location.href);
@@ -13,23 +14,19 @@ const DetailPage = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    if (searchWord) {
-      const params = {
-        query: searchWord,
-        page: 1,
-      };
-      const res = sendRequest(params);
-      console.log(res);
-    }
-  }, [searchWord]);
+    const params: any = {
+      query: searchWord,
+      page: 1,
+    };
+    sendRequest(params);
+  }, [URLSearch]);
 
-  const sendRequest = async (params) => {
-    const req = await axiosInstance.get(
+  const sendRequest = async (params: any) => {
+    const req: AxiosResponse<any> = await axiosInstance.get(
       `/v3/search/book?query=${searchWord}`,
-      params
+      params,
     );
-    setData(req.data.documents);
-    console.log(data);
+    setData(req.data);
   };
 
   return (

@@ -10,7 +10,6 @@ export const omitText = css`
   overflow: hidden;
   word-break: break-all;
   text-overflow: ellipsis;
-  /* white-space: nowrap; */
 `;
 
 export const boxShadow = css`
