@@ -1,17 +1,16 @@
 import styled from "styled-components";
 import { boxShadow, flexCenter, omitText } from "../../../style/common";
 
-type ButtonProps = {
-  isInList: boolean;
-  onClick: () => void;
-};
-
 const BookImg = styled.img`
   width: 150px;
   height: 200px;
   position: absolute;
   top: 10px;
 `;
+type ButtonProps = {
+  isInList: boolean;
+  onClick: () => void;
+};
 
 const Button = styled.div<ButtonProps>`
   position: absolute;

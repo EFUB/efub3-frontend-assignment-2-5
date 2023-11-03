@@ -1,27 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { axiosInstance } from "../../apis/core";
 import BookList from "../../components/detail/BookList/BookList";
 import S from "./style";
 import SearchBar from "../../components/main/SearchBar/SearchBar";
 import LikeItem from "../../components/common/LikeItemList/LikeItem";
+import { axiosInstance } from "../../apis/core";
 import { AxiosResponse } from "axios";
+import { useLocation } from "react-router-dom";
 
 const DetailPage = () => {
-  const url = new URL(window.location.href);
-  const URLSearch = new URLSearchParams(url.search);
-  const searchWord = URLSearch.get("search");
-
   const [data, setData] = useState([]);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchWord = searchParams.get("search");
 
   useEffect(() => {
+    if (searchWord) {
+      sendRequest(searchWord);
+    }
+  }, [searchWord]);
+
+  const sendRequest = async (searchWord: string) => {
     const params: any = {
       query: searchWord,
       page: 1,
     };
-    sendRequest(params);
-  }, [URLSearch]);
 
-  const sendRequest = async (params: any) => {
     const req: AxiosResponse<any> = await axiosInstance.get(
       `/v3/search/book?query=${searchWord}`,
       params,
