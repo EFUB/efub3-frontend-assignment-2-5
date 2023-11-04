@@ -1,11 +1,19 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
+import Header from "./Header";
+import MainPage from "./pages/MainPage";
+import CartPage from "./pages/CartPage";
+
 function App() {
   return (
-    <div className="App">
-      typescript 초기 셋팅
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
+    </>
   );
 }
 
