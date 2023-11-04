@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 import { useRecoilState } from "recoil";
-import { todoListState } from "./atoms";
+import { TodoItemType, todoListState } from "./atoms";
 
-const TodoItem = ({ item }) => {
+interface Props {
+  item: TodoItemType;
+}
+
+const TodoItem = ({ item }: Props) => {
   const [todoList, setTodoList] = useRecoilState(todoListState);
   const [editing, setEditing] = useState(false);
   const [newInput, setNewInput] = useState(item.text);

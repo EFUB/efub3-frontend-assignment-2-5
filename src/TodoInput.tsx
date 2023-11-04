@@ -3,7 +3,12 @@ import { useSetRecoilState } from "recoil";
 import { styled } from "styled-components";
 import { todoListState } from "./atoms";
 
-const TodoInput = ({ input, setInput }) => {
+interface Props {
+  input: string;
+  setInput: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const TodoInput = ({ input, setInput }: Props) => {
   const setTodoList = useSetRecoilState(todoListState);
 
   const addItem = () => {

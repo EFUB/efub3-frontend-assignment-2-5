@@ -3,7 +3,13 @@ import { recoilPersist } from "recoil-persist";
 
 const { persistAtom } = recoilPersist();
 
-export const todoListState = atom({
+export type TodoItemType = {
+  id: number;
+  text: string;
+  completed: boolean;
+};
+
+export const todoListState = atom<TodoItemType[]>({
   key: "todoListState",
   default: [],
   effects_UNSTABLE: [persistAtom],
