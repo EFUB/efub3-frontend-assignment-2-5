@@ -1,4 +1,9 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import {
+  combineReducers,
+  configureStore,
+  ThunkDispatch,
+  Action,
+} from '@reduxjs/toolkit';
 import luckyCatSlice from './luckyCatSlice';
 import diarySlice from './diarySlice';
 import { persistReducer } from 'redux-persist';
@@ -22,4 +27,7 @@ const store = configureStore({
   reducer: persistedReducer,
 });
 
+export type ReducerType = ReturnType<typeof reducers>;
+export type AppThunkDispatch = ThunkDispatch<ReducerType, any, Action<string>>;
+export type AppDispatch = typeof store.dispatch;
 export default store;

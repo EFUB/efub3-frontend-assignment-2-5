@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { DiaryState } from './type';
 
 const setDateInfo = () => {
   const now = new Date();
@@ -10,10 +11,10 @@ const setDateInfo = () => {
 
 const diarySlice = createSlice({
   name: 'diary',
-  initialState: { diaryList: [] },
+  initialState: { diaryList: [] as DiaryState[] },
   reducers: {
     add: (state, action) => {
-      const newDiary = {
+      const newDiary: DiaryState = {
         id: Date.now(),
         date: setDateInfo(),
         content: action.payload,

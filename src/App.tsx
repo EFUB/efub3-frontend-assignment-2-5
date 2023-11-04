@@ -15,9 +15,9 @@ function App() {
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<Landing />} />
-            <Route exact path="/diary" element={<Diary />} />
-            <Route exact path="/lucky-cat" element={<LuckyCat />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/diary" element={<Diary />} />
+            <Route path="/lucky-cat" element={<LuckyCat />} />
           </Routes>
         </BrowserRouter>
       </PersistGate>

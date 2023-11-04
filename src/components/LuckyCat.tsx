@@ -5,13 +5,16 @@ import { asyncUpFetch } from '../Redux/luckyCatSlice';
 import luckyCatSlice from '../Redux/luckyCatSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { ReducerType } from '../Redux/store';
+import { AppThunkDispatch } from '../Redux/store';
 
 const LuckyCat = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const count = useSelector((state) => state.luckyCat.value);
-  const status = useSelector((state) => state.luckyCat.status);
-  const catImage = useSelector((state) => state.luckyCat.catImage);
+  const useAppDispatch = () => useDispatch<AppThunkDispatch>();
+  const dispatch = useAppDispatch();
+  const count = useSelector((state: ReducerType) => state.luckyCat.value);
+  const status = useSelector((state: ReducerType) => state.luckyCat.status);
+  const catImage = useSelector((state: ReducerType) => state.luckyCat.catImage);
 
   const handleChangeCat = async () => {
     await dispatch(asyncUpFetch());

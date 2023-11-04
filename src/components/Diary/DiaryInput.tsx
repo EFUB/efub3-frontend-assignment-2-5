@@ -8,11 +8,11 @@ const DiaryInput = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
 
-  const addItem = (e) => {
+  const addItem = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (text) {
       dispatch(diarySlice.actions.add(text));
@@ -36,7 +36,7 @@ const DiaryInput = () => {
 
 export default DiaryInput;
 
-const Form = styled.form`
+const Form = styled.form<{ onSubmit: React.FormEventHandler }>`
   display: flex;
   align-items: center;
 `;

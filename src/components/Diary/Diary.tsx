@@ -4,10 +4,11 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import DiaryInput from './DiaryInput';
 import DiaryItem from './DiaryItem';
+import { ReducerType } from '../../Redux/store';
 
 const Diary = () => {
   const navigate = useNavigate();
-  const diaryList = useSelector((state) => state.diary.diaryList);
+  const diaryList = useSelector((state: ReducerType) => state.diary.diaryList);
 
   return (
     <S.Wrapper>
@@ -40,14 +41,7 @@ const Diary = () => {
             .slice(0)
             .reverse()
             .map((item) => {
-              return (
-                <DiaryItem
-                  key={item.id}
-                  id={item.id}
-                  content={item.content}
-                  date={item.date}
-                />
-              );
+              return <DiaryItem key={item.id} {...item} />;
             })}
       </DiaryContainer>
       <Credit />

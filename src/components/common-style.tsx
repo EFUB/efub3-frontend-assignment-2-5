@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import github from '../assets/Github.svg';
 
-const S = {};
+const S: any = {};
 S.Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
@@ -21,14 +21,14 @@ S.Container = styled.div`
   justify-content: center;
 `;
 
-S.Text = styled.div`
+S.Text = styled.div<{ size: string; weight: string }>`
   color: #111;
   font-size: ${(props) => props.size || '100px'};
   font-weight: ${(props) => props.weight || '700'};
   margin-bottom: 1vmin;
 `;
 
-S.BtnContainer = styled.div`
+S.BtnContainer = styled.div<{ margin: string }>`
   display: flex;
   align-items: center;
   margin-top: ${(props) => props.margin || '4vmin'};

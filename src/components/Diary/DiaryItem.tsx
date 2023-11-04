@@ -3,26 +3,31 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { S } from '../common-style';
 import { BsTrashFill } from 'react-icons/bs';
+import { DiaryState } from '../../Redux/type';
 
-const DiaryItem = ({ id, content, date }) => {
+interface Props extends DiaryState {
+  key: number;
+}
+
+const DiaryItem = (props: Props) => {
   const dispatch = useDispatch();
 
   const deleteItem = () => {
     console.log('delete');
-    dispatch(diarySlice.actions.delete(id));
+    dispatch(diarySlice.actions.delete(props.id));
   };
   return (
-    <DiaryContent key={id}>
+    <DiaryContent key={props.id}>
       <ColumnContainer>
         <S.Text size={'1.8vmin'} weight={'400'} style={{ color: '#D8D8D8' }}>
-          {date}
+          {props.date}
         </S.Text>
         <S.Text
           size={'2.2vmin'}
           weight={'500'}
           style={{ width: '36vmin', height: 'auto', whiteSpace: 'pre-line' }}
         >
-          {content}
+          {props.content}
         </S.Text>
       </ColumnContainer>
       <FlexContainer style={{ gap: '2vmin' }}>

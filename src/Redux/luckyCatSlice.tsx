@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-export const asyncUpFetch = createAsyncThunk(
+export const asyncUpFetch = createAsyncThunk<string>(
   'luckyCatSlice/asyncUpFetch',
   async () => {
     const OPEN_API_DOMAIN = 'https://cataas.com';
@@ -17,7 +17,7 @@ const luckyCatSlice = createSlice({
     up: (state, action) => {
       state.value = state.value + action.payload;
     },
-    reset: (state, action) => {
+    reset: (state) => {
       state.value = 0;
     },
   },
