@@ -5,11 +5,7 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
 import CartItem from "../components/CartItem";
 import { TotalPriceSelector } from "../recoil/Selector";
 import { useNavigate } from "react-router-dom";
-import { CardItemProps } from "../types";
-
-interface CartItemProps extends CardItemProps {
-  quantity: number;
-}
+import { CartItemProps } from "../types";
 
 const Cart = () => {
   const [cartItem, setCartItem] = useRecoilState(CartItemAtom);
